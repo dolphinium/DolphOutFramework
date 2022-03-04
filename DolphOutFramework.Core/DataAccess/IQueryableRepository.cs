@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DolphOutFramework.Core.Entities;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DolphOutFramework.Core.Entities;
 
 namespace DolphOutFramework.Core.DataAccess
 {
