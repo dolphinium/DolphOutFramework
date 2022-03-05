@@ -1,11 +1,10 @@
-﻿using DolphOutFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
+﻿using System;
+using System.Linq;
+using DolphOutFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using FluentValidation;
 using PostSharp.Aspects;
-using System;
-using System.Linq;
-using PostSharp.Serialization;
 
-namespace DolphOutFramework.Core.Aspects.PostSharp
+namespace DolphOutFramework.Core.Aspects.PostSharp.ValidationAspects
 {
     [Serializable]
     public class FluentValidationAspect : OnMethodBoundaryAspect

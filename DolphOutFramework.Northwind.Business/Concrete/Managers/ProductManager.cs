@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using DolphOutFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using DolphOutFramework.Northwind.Business.Abstract;
 using DolphOutFramework.Northwind.Business.ValidationRules.FluentValidation;
 using DolphOutFramework.Northwind.DataAccess.Abstract;
 using DolphOutFramework.Northwind.Entities.Concrete;
 using DolphOutFramework.Core.Aspects.PostSharp;
+using DolphOutFramework.Core.Aspects.PostSharp.TransactionAspects;
+using DolphOutFramework.Core.Aspects.PostSharp.ValidationAspects;
 using DolphOutFramework.Core.DataAccess;
 
 namespace DolphOutFramework.Northwind.Business.Concrete.Managers
@@ -42,6 +45,14 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         public Product Update(Product product)
         {
             return _productDal.Update(product);
+        }
+
+        [TransactionScopeAspect]
+        public void TransactionalOperation(Product product1, Product product2)
+        {
+            _productDal.Add(product1);
+            // Business codes
+            _productDal.Update(product2);
         }
     }
 }
