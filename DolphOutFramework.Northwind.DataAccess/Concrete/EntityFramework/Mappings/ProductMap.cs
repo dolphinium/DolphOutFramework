@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DolphOutFramework.Northwind.Entities.Concrete;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DolphOutFramework.Northwind.Entities.Concrete;
 
 namespace DolphOutFramework.Northwind.DataAccess.Concrete.EntityFramework.Mappings
 {

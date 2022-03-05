@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DolphOutFramework.Northwind.DataAccess.Concrete.EntityFramework.Mappings;
+﻿using DolphOutFramework.Northwind.DataAccess.Concrete.EntityFramework.Mappings;
 using DolphOutFramework.Northwind.Entities.Concrete;
+using System.Data.Entity;
 
 namespace DolphOutFramework.Northwind.DataAccess.Concrete.EntityFramework
 {
@@ -16,6 +11,7 @@ namespace DolphOutFramework.Northwind.DataAccess.Concrete.EntityFramework
             Database.SetInitializer<NorthwindContext>(null);
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
