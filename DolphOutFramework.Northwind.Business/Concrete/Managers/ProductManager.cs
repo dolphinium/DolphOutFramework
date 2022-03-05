@@ -8,6 +8,7 @@ using DolphOutFramework.Northwind.Business.Abstract;
 using DolphOutFramework.Northwind.Business.ValidationRules.FluentValidation;
 using DolphOutFramework.Northwind.DataAccess.Abstract;
 using DolphOutFramework.Northwind.Entities.Concrete;
+using DolphOutFramework.Core.Aspects.PostSharp;
 
 namespace DolphOutFramework.Northwind.Business.Concrete.Managers
 {
@@ -30,12 +31,14 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
             return _productDal.Get(p => p.ProductId == id);
         }
 
+        [FluentValidationAspect(typeof(ProductValidator))]
         public Product Add(Product product)
         {
             ValidatorTool.FluentValidate(new ProductValidator(),product);
             return _productDal.Add(product);
         }
 
+        [FluentValidationAspect(typeof(ProductValidator))]
         public Product Update(Product product)
         {
             ValidatorTool.FluentValidate(new ProductValidator(), product);
