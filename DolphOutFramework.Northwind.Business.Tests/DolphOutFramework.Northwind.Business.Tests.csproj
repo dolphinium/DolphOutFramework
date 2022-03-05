@@ -39,21 +39,55 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.4.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.4.1\lib\Net45\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.2.2.7\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.2.2.7\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Moq, Version=4.17.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.17.1\lib\net45\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ProductManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DolphOutFramework.Core\DolphOutFramework.Core.csproj">
+      <Project>{6584cf61-ab28-4ed6-9940-b6141e593b81}</Project>
+      <Name>DolphOutFramework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DolphOutFramework.Northwind.Business\DolphOutFramework.Northwind.Business.csproj">
+      <Project>{EFD6622A-5E7D-47F0-BD42-9EEDE97A2541}</Project>
+      <Name>DolphOutFramework.Northwind.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DolphOutFramework.Northwind.DataAccess\DolphOutFramework.Northwind.DataAccess.csproj">
+      <Project>{646923F5-C912-4BDA-BF8E-E976470DD1D9}</Project>
+      <Name>DolphOutFramework.Northwind.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DolphOutFramework.Northwind.Entities\DolphOutFramework.Northwind.Entities.csproj">
+      <Project>{D30C61E8-5A65-4660-9471-063BC82AD822}</Project>
+      <Name>DolphOutFramework.Northwind.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

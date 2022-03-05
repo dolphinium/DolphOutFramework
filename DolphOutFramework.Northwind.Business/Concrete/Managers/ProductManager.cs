@@ -34,14 +34,12 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         [FluentValidationAspect(typeof(ProductValidator))]
         public Product Add(Product product)
         {
-            ValidatorTool.FluentValidate(new ProductValidator(),product);
             return _productDal.Add(product);
         }
 
         [FluentValidationAspect(typeof(ProductValidator))]
         public Product Update(Product product)
         {
-            ValidatorTool.FluentValidate(new ProductValidator(), product);
             return _productDal.Update(product);
         }
     }
