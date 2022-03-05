@@ -9,6 +9,7 @@ using DolphOutFramework.Northwind.Business.ValidationRules.FluentValidation;
 using DolphOutFramework.Northwind.DataAccess.Abstract;
 using DolphOutFramework.Northwind.Entities.Concrete;
 using DolphOutFramework.Core.Aspects.PostSharp;
+using DolphOutFramework.Core.DataAccess;
 
 namespace DolphOutFramework.Northwind.Business.Concrete.Managers
 {
