@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using DolphOutFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
+﻿using DolphOutFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using FluentValidation;
 using PostSharp.Aspects;
+using System;
+using System.Linq;
+using PostSharp.Serialization;
 
 namespace DolphOutFramework.Core.Aspects.PostSharp
 {
@@ -24,7 +21,7 @@ namespace DolphOutFramework.Core.Aspects.PostSharp
         {
             var validator = (IValidator)Activator.CreateInstance(_validatorType);
             var entityType = _validatorType.BaseType.GetGenericArguments()[0];
-            var entites = args.Arguments.Where(t=>t.GetType()==entityType);
+            var entites = args.Arguments.Where(t => t.GetType() == entityType);
 
             foreach (var entity in entites)
             {
