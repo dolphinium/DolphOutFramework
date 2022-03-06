@@ -11,9 +11,11 @@ using DolphOutFramework.Northwind.DataAccess.Abstract;
 using DolphOutFramework.Northwind.Entities.Concrete;
 using DolphOutFramework.Core.Aspects.PostSharp;
 using DolphOutFramework.Core.Aspects.PostSharp.CacheAspects;
+using DolphOutFramework.Core.Aspects.PostSharp.LogAspects;
 using DolphOutFramework.Core.Aspects.PostSharp.TransactionAspects;
 using DolphOutFramework.Core.Aspects.PostSharp.ValidationAspects;
 using DolphOutFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
+using DolphOutFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using DolphOutFramework.Core.DataAccess;
 
 namespace DolphOutFramework.Northwind.Business.Concrete.Managers
@@ -28,6 +30,7 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
+        [LogAspect(typeof(DatabaseLogger))]
         public List<Product> GetAll()
         {
             return _productDal.GetList();
@@ -46,6 +49,7 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         }
 
         [FluentValidationAspect(typeof(ProductValidator))]
+        
         public Product Update(Product product)
         {
             return _productDal.Update(product);
