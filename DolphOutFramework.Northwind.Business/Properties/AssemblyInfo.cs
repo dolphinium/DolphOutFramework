@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using DolphOutFramework.Core.Aspects.PostSharp.ExceptionAspects;
 using DolphOutFramework.Core.Aspects.PostSharp.LogAspects;
 using DolphOutFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
@@ -16,6 +17,8 @@ using DolphOutFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: LogAspect(typeof(DatabaseLogger),AttributeTargetTypes = "DolphOutFramework.Northwind.Business.Concrete.Managers.*")]
+[assembly: ExceptionLogAspect(typeof(DatabaseLogger), AttributeTargetTypes = "DolphOutFramework.Northwind.Business.Concrete.Managers.*")]
+
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

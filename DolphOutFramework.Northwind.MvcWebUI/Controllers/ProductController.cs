@@ -46,7 +46,7 @@ namespace DolphOutFramework.Northwind.MvcWebUI.Controllers
                     CategoryId = 1,
                     ProductName = "Acer Nitro 5",
                     QuantityPerUnit = "1 in a box",
-                    UnitPrice = 7000
+                    UnitPrice = 1
                 },
                 new Product
                 {
