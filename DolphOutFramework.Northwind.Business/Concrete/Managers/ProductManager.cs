@@ -11,6 +11,7 @@ using DolphOutFramework.Northwind.Business.ValidationRules.FluentValidation;
 using DolphOutFramework.Northwind.DataAccess.Abstract;
 using DolphOutFramework.Northwind.Entities.Concrete;
 using DolphOutFramework.Core.Aspects.PostSharp;
+using DolphOutFramework.Core.Aspects.PostSharp.AuthorizationAspects;
 using DolphOutFramework.Core.Aspects.PostSharp.CacheAspects;
 using DolphOutFramework.Core.Aspects.PostSharp.LogAspects;
 using DolphOutFramework.Core.Aspects.PostSharp.PerformanceAspects;
@@ -33,6 +34,7 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
 
         [CacheAspect(typeof(MemoryCacheManager))] 
         [PerformanceCounterAspect(2)]
+        [SecuredOperation(Roles="Admin,Editor")]
         public List<Product> GetAll()
         {
             Thread.Sleep(3000);
