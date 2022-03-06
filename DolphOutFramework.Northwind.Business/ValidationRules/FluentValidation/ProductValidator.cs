@@ -12,7 +12,7 @@ namespace DolphOutFramework.Northwind.Business.ValidationRules.FluentValidation
     {
         public ProductValidator()
         {
-            RuleFor(p => p.ProductId).NotEmpty();
+            RuleFor(p => p.CategoryId).NotEmpty();
             RuleFor(p => p.ProductName).NotEmpty();
             RuleFor(p => p.UnitPrice).GreaterThan(0);
             RuleFor(p => p.QuantityPerUnit).NotEmpty();
