@@ -37,7 +37,6 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         [SecuredOperation(Roles="Admin,Editor")]
         public List<Product> GetAll()
         {
-            Thread.Sleep(3000);
             return _productDal.GetList();
         }
 
