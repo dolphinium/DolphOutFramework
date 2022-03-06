@@ -29,9 +29,7 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
             _productDal = productDal;
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
-        [LogAspect(typeof(DatabaseLogger))]
-        [LogAspect(typeof(FileLogger))]
+        [CacheAspect(typeof(MemoryCacheManager))] 
         public List<Product> GetAll()
         {
             return _productDal.GetList();
@@ -44,14 +42,12 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
 
         [FluentValidationAspect(typeof(ProductValidator))]
         [CacheRemoveAspect(typeof(MemoryCacheManager))]
-        [LogAspect(typeof(FileLogger))]
         public Product Add(Product product)
         {
             return _productDal.Add(product);
         }
 
         [FluentValidationAspect(typeof(ProductValidator))]
-        
         public Product Update(Product product)
         {
             return _productDal.Update(product);
