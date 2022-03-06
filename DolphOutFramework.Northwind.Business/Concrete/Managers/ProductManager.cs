@@ -54,6 +54,7 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         }
 
         [TransactionScopeAspect]
+        [FluentValidationAspect(typeof(ProductValidator))]
         public void TransactionalOperation(Product product1, Product product2)
         {
             _productDal.Add(product1);

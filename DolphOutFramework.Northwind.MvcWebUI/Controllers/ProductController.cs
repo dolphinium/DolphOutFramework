@@ -38,5 +38,26 @@ namespace DolphOutFramework.Northwind.MvcWebUI.Controllers
             });
             return "Added";
         }
+
+        public string AddUpdate()
+        {
+            _productService.TransactionalOperation(new Product
+                {
+                    CategoryId = 1,
+                    ProductName = "Acer Nitro 5",
+                    QuantityPerUnit = "1 in a box",
+                    UnitPrice = 7000
+                },
+                new Product
+                {
+                    CategoryId = 1,
+                    ProductName = "Iphone 12 Plus",
+                    QuantityPerUnit = "1 in a box",
+                    UnitPrice = 12000,
+                    ProductId = 2
+                }
+            );
+            return "Done";
+        }
     }
 }
