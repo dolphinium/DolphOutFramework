@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using DolphOutFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
@@ -34,6 +35,7 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         [PerformanceCounterAspect(2)]
         public List<Product> GetAll()
         {
+            Thread.Sleep(3000);
             return _productDal.GetList();
         }
 
