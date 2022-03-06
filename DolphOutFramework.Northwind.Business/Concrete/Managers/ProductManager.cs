@@ -12,6 +12,7 @@ using DolphOutFramework.Northwind.Entities.Concrete;
 using DolphOutFramework.Core.Aspects.PostSharp;
 using DolphOutFramework.Core.Aspects.PostSharp.CacheAspects;
 using DolphOutFramework.Core.Aspects.PostSharp.LogAspects;
+using DolphOutFramework.Core.Aspects.PostSharp.PerformanceAspects;
 using DolphOutFramework.Core.Aspects.PostSharp.TransactionAspects;
 using DolphOutFramework.Core.Aspects.PostSharp.ValidationAspects;
 using DolphOutFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
@@ -30,6 +31,7 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))] 
+        [PerformanceCounterAspect(2)]
         public List<Product> GetAll()
         {
             return _productDal.GetList();
