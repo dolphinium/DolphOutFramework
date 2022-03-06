@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DolphOutFramework.Northwind.Business.Abstract;
 using DolphOutFramework.Northwind.DataAccess.Abstract;
+using DolphOutFramework.Northwind.Entities.ComplexTypes;
 using DolphOutFramework.Northwind.Entities.Concrete;
 
 namespace DolphOutFramework.Northwind.Business.Concrete.Managers
@@ -21,6 +22,11 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         public User GetByUserNameAndPassword(string userName, string password)
         {
             return _userDal.Get(u => u.UserName == userName & u.Password == password);
+        }
+
+        public List<UserRoleItem> GetUserRoles(User user)
+        {
+            return _userDal.GetUserRoles(user);
         }
     }
 }

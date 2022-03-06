@@ -34,7 +34,7 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
 
         [CacheAspect(typeof(MemoryCacheManager))] 
         [PerformanceCounterAspect(2)]
-        [SecuredOperation(Roles="Admin,Editor")]
+        [SecuredOperation(Roles="Admin,Editor,Student")]
         public List<Product> GetAll()
         {
             return _productDal.GetList();
@@ -63,7 +63,6 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         public void TransactionalOperation(Product product1, Product product2)
         {
             _productDal.Add(product1);
-            // Business codes
             _productDal.Update(product2);
         }
     }
