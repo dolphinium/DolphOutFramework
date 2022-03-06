@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using DolphOutFramework.Core.Utilities.Mvc.Infrastructure;
+using DolphOutFramework.Northwind.Business.Dependency.Resolvers.Ninject;
 
 namespace DolphOutFramework.Northwind.MvcWebUI
 {
@@ -13,6 +15,8 @@ namespace DolphOutFramework.Northwind.MvcWebUI
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory(new BusinessModule()));
         }
     }
 }

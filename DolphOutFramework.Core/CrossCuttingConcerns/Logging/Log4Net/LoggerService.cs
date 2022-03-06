@@ -7,6 +7,7 @@ using log4net;
 
 namespace DolphOutFramework.Core.CrossCuttingConcerns.Logging.Log4Net
 {
+    [Serializable]
     public class LoggerService
     {
         private ILog _log;
