@@ -8,6 +8,7 @@ using DolphOutFramework.Northwind.DataAccess.Concrete.EntityFramework;
 using DolphOutFramework.Northwind.DataAccess.Concrete.NHibernate.Helpers;
 using Ninject.Modules;
 using System.Data.Entity;
+using DolphOutFramework.Northwind.DataAccess.Concrete.NHibernate;
 
 namespace DolphOutFramework.Northwind.Business.Dependency.Resolvers.Ninject
 {
