@@ -8,7 +8,7 @@ using DolphOutFramework.Northwind.Entities.Concrete;
 
 namespace DolphOutFramework.Northwind.Business.Mappings.AutoMapper.Profiles
 {
-    public class BusinessProfile:Profile
+    public class BusinessProfile : Profile
     {
         public BusinessProfile()
         {
