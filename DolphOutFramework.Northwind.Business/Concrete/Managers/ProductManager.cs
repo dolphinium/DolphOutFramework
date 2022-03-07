@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
+using AutoMapper;
 using DolphOutFramework.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using DolphOutFramework.Northwind.Business.Abstract;
 using DolphOutFramework.Northwind.Business.ValidationRules.FluentValidation;
@@ -20,6 +21,7 @@ using DolphOutFramework.Core.Aspects.PostSharp.ValidationAspects;
 using DolphOutFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
 using DolphOutFramework.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using DolphOutFramework.Core.DataAccess;
+using DolphOutFramework.Core.Utilities.Mappings;
 
 namespace DolphOutFramework.Northwind.Business.Concrete.Managers
 {
@@ -37,15 +39,8 @@ namespace DolphOutFramework.Northwind.Business.Concrete.Managers
         //[SecuredOperation(Roles="Admin,Editor,Student")]
         public List<Product> GetAll()
         {
-
-            return _productDal.GetList().Select(p=>new Product
-            {
-                CategoryId = p.CategoryId,
-                ProductId = p.ProductId,
-                ProductName = p.ProductName,
-                QuantityPerUnit = p.QuantityPerUnit,
-                UnitPrice = p.UnitPrice
-            }).ToList();
+            var products = AutoMapperHelper.MapToSameTypeList(_productDal.GetList());
+            return products;
         }
 
         public Product GetById(int id)
